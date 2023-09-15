@@ -1,10 +1,109 @@
 <html>
-   <head>
-      <title>CARE HOSPITAL</title>
-      
-   </head>
+
+<head>
+   <title>CARE HOSPITAL</title>
+   <style>
+      div.left {
+         float: left;
+      }
+
+      body {
+         background-color: rgb(243 247 176);
+         font-family: sans-serif;
+      }
+
+      .row {
+         float: left;
+         width: 23%;
+         padding: 5px;
+      }
+
+      .column::after {
+         content: "";
+         clear: both;
+         display: table;
+      }
+
+      .pin {
+         color: #622B14;
+         background: none repeat scroll 0 0 #FFFFFF;
+         border-radius: 5px 5px 5px 5px;
+         box-shadow: 0 0 10px #E8E8E8 inset;
+         height: 40px;
+         margin: 0 0 0 25px;
+         width: 200px;
+         padding: 10px;
+         box-sizing: border-box;
+         border: 1px solid black;
+         float: left;
+         font-family: sans-serif;
+      }
+
+      h2 {
+         color: purple;
+         font-size: 32;
+         font-family: arial black;
+      }
+
+      p {
+         font-size: 18;
+         font-family: times new roman;
+      }
+
+      h3 {
+         color: green;
+         font-size: 22;
+         font-family: arial;
+      }
+
+      h5 {
+         color: darkblue;
+         font-size: 20;
+      }
+
+      table {
+         font-size: 18;
+         font-family: times new roman;
+      }
+   </style>
+</head>
+
+<body>
+
+   <h1>
+      <div class="left">
+         <br><img src="doctor logo.jpg" alt="logo" width="75px" height="75px">
+      </div>
+      <div class="left">
+         <b><b><br>&nbsp &nbsp CARE&nbspHOSPITAL &nbsp</b></b><br>
+         <small><small>&nbsp&nbsp&nbsp&nbsp&nbsp For&nbspyour&nbspbaby's&nbspgood&nbsphealth....</small></small>
+
+   </h1>
+   <br>
+   <h4>
+      <center>
+         <br><br><br><br><br>
+         <div class="pin">
+				<a href="./index">Home</a>
+			</div>
+			<div class="pin">
+				<a href="about us">About Us</a>
+			</div>
+			<div class="pin">
+				<a href="Facilities">Facilities</a>
+			</div>
+			<div class="pin">
+				<a href="Appointment">Book an Appointment</a>
+			</div>
+			<div class="pin">
+				<a href="cont">Contact us</a>
+			</div>
+
+      </center>
+   </h4>
+
    <body bgcolor="lavender">
-   <?php 	
+      <!-- <?php 	
       $patientname=$_POST['patientname'];
 		$mothername=$_POST['mothername'];
 		$place=$_POST['place'];
@@ -13,7 +112,7 @@
 		$dob=$_POST['dob'];
                 $contactno=$_POST['contactno'];
 
-		<!-- $con=mysqli_connect("localhost","root","","appointment");
+		$con=mysqli_connect("localhost","root","","appointment");
 
 		if(!$con)
 			print"Connecion Failed".mysqli_connect_error();
@@ -22,160 +121,137 @@
 
 		$query="INSERT INTO form(patientname,mothername,place,gender,Treatment,dob,contactno) 
 		VALUES('".$patientname."','".$mothername."','".$place."','".$gender."','".$Treatment."','".$dob."','".$contactno."')";
-		  -->
-		if(!mysqli_query($con,$query))
+		 if(!mysqli_query($con,$query))
 		{
 			echo "Error";
 		}
 		else
       
 			echo "Success";
-      ?>
-	 -->
-     <h2><center><br><br>&nbsp&nbsp Book an Appointment</center></h2>
-     <br>
-     <center>
-     <form action="ABC.php" method="post" name="Hospital" onsubmit="alert('your appointent ID is'+ Math.rand())">
-     
-     <h3>Appointment Form</h3>
-        <table border="1" cellpadding="6" width="40%" align="center" bgcolor="#f0ddef" style="font-size:17px">
-        <tr>
-        <td>Patient Name</td>
-        <td>
-        <input type="text" name="patientname" id="patientname" style="width:440px;">
-        </td>
-        </tr>
-        <tr></tr>
-        
-        <tr>
-        <td>Mother Name</td>
-        <td>
-        <input type="text" name="mothername" id="mothername" style="width:440px;">
-        </td>
-        </tr>
-        <tr></tr>
+         action="ABC.php" method="post"
+      ?>-->     
+      <center>
+         <form  name="Hospital" onsubmit="validate()">
+            </br>
+            <h3>Appointment Form</h3>
+            <table border="1" cellpadding="6" width="40%" align="center" bgcolor="#f0ddef" style="font-size:17px">
+               <tr>
+                  <td>Patient Name</td>
+                  <td>
+                     <input type="text" name="patientname" id="patientname" style="width:440px;">
+                  </td>
+               </tr>
+               <tr></tr>
 
-        <tr>
-        <td>Place</td>
-        <td>
-        <input type="text" name="place" id="place" style="width:440px;">
-        </td>
-        </tr>
-        <tr></tr>
+               <tr>
+                  <td>Mother Name</td>
+                  <td>
+                     <input type="text" name="mothername" id="mothername" style="width:440px;">
+                  </td>
+               </tr>
+               <tr></tr>
 
-        <tr>
-        <td>Gender</td>
-        <td>
-        <input type="radio" name="gender" id="gender">Male
-        <input type="radio" name="gender" id="gender">Female
-        </td>
-        </tr>
-        <tr></tr>
+               <tr>
+                  <td>Place</td>
+                  <td>
+                     <input type="text" name="place" id="place" style="width:440px;">
+                  </td>
+               </tr>
+               <tr></tr>
 
-        <tr>
-        <td>Treatment</td>
-        <td>
-        <select name="Treatment" style="width:440px;">
-               <option value="-1" selected>select..</option>
-               <option value="1st Consulation">1st Consulation</option>
-               <option value="2nd Consulation">2nd Consulation</option>
-               <option value="Vaccination">Vaccination</option>
-       </select>
-       </td>
-       </tr>
-       <tr></tr>
-       
-        <tr>
-        <td>DOB</td>
-        <td>
-        <input type="text" name="dob" id="dob" placeholder="yyyy-mm-dd" style="width:440px;">
-        </td>
-        </tr>
-        <tr></tr>
+               <tr>
+                  <td>Gender</td>
+                  <td>
+                     <input type="radio" name="gender" id="gender">Male
+                     <input type="radio" name="gender" id="gender">Female
+                  </td>
+               </tr>
+               <tr></tr>
 
-        <tr>
-        <td>Contact No</td>
-        <td>
-        <input type="text" name="contactno" id="contactno" style="width:440px;">
-        </td>
-        </tr>
-        <tr></tr>
-    </table><br>
-     <input type="Submit" value="Confirm Appointment" name="Confirm"/>
-     <input type="Reset" value="Reset"/>
-     
-    </form>
-   </center>
-  </body>
+               <tr>
+                  <td>Treatment</td>
+                  <td>
+                     <select name="Treatment" style="width:440px;">
+                        <option value="-1" selected>select..</option>
+                        <option value="1st Consulation">1st Consulation</option>
+                        <option value="2nd Consulation">2nd Consulation</option>
+                        <option value="Vaccination">Vaccination</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr></tr>
+
+               <tr>
+                  <td>DOB</td>
+                  <td>
+                     <input type="text" name="dob" id="dob" placeholder="yyyy-mm-dd" style="width:440px;">
+                  </td>
+               </tr>
+               <tr></tr>
+
+               <tr>
+                  <td>Contact No</td>
+                  <td>
+                     <input type="text" name="contactno" id="contactno" style="width:440px;">
+                  </td>
+               </tr>
+               <tr></tr>
+            </table><br>
+            <input type="submit" value="Confirm Appointment" name="Confirm" />
+            <input type="reset" value="Reset" />
+         </form>
+      </center>
+   </body>
 
 
- <!--<script>
-    
-    function validate()
-    {
-      if(document.Hospital.patientname.value=="")
-     {
-        alert("Please provide Patient Name");
-        document.Hospital.patientname.focus();
-        return false;
-     }
-    
-     if(document.Hospital.mothername.value=="")
-     {
-        alert("Please provide Mother Name");
-        document.Hospital.mothername.focus();
-        return false;
-     }
-     
-     if(document.Hospital.place.value=="")
-     {
-        alert("Please provide Place");
-        document.Hospital.place.focus();
-        return false;
-     }
-     
-     if((Hospital.gender[0].checked==false) && (Hospital.gender[1].checked==false))
-     {
-        alert("Please enter Gender");
-        return false;
-     }
-     
-     if( document.Hospital.Treatment.value == "-1" )
-     {
-        alert( "Please provide the type of Treatment" );
-        document.Hospital.Treatment.focus() ;
-        return false;
-     }   
-  
-  if( document.Hospital.dob.value=="" )
-  {
-     alert( "Please provide DOB" );
-     document.Hospital.dob.focus() ;
-     return false;
-  }
-  
-  if( document.Hospital.contactno.value == "" ||
-           isNaN( document.Hospital.contactno.value) ||
-           document.Hospital.contactno.value.length != 10 )
-   {
-      alert( "Please provide a Contact No in the format 123...." );
-      document.Hospital.contactno.focus() ;
-      return false;
-   }
-   return( true );
-}
-   </script>--> 
-  </html>
-        
+   <script>
 
+      function validate() {
+         
+         if (document.Hospital.patientname.value == "") {
+            alert("Please provide Patient Name");
+            document.Hospital.patientname.focus();
+            return false;
+         }
 
+         if (document.Hospital.mothername.value == "") {
+            alert("Please provide Mother Name");
+            document.Hospital.mothername.focus();
+            return false;
+         }
 
+         if (document.Hospital.place.value == "") {
+            alert("Please provide Place");
+            document.Hospital.place.focus();
+            return false;
+         }
 
+         if ((Hospital.gender[0].checked == false) && (Hospital.gender[1].checked == false)) {
+            alert("Please enter Gender");
+            return false;
+         }
 
+         if (document.Hospital.Treatment.value == "-1") {
+            alert("Please provide the type of Treatment");
+            document.Hospital.Treatment.focus();
+            return false;
+         }
 
+         if (document.Hospital.dob.value == "") {
+            alert("Please provide DOB");
+            document.Hospital.dob.focus();
+            return false;
+         }
 
-        
-        
+         if (document.Hospital.contactno.value == "" ||
+            isNaN(document.Hospital.contactno.value) ||
+            document.Hospital.contactno.value.length != 10) {
+            alert("Please provide a Contact No in the format 9876543210");
+            document.Hospital.contactno.focus();
+            return false;
+         }
+         alert("Your Appointment Id is : "+Math.floor(Math.random()*10000));
+      }
+   </script>
 
-
-     
+</html>
